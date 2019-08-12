@@ -13,6 +13,7 @@ class TileableNoise {
 
 	constructor(r, fromX, toX, fromY, toY) {
 
+		// The range of the function
 		this.fromX = fromX;
 		this.toX = toX;
 
@@ -38,9 +39,9 @@ class TileableNoise {
 			this.r = r;
 
 			// r2 is the radius of the second circle . It represents the noise scale of the y axis.
-			// It scales acording to the ratio of the absolute values of the difference in toA and fromA.
+			// It scales acording to the ratio of the absolute values of the difference in to'A' and from'A'.
 			// This is necessary because sometimes the scales of the x and y axis are different
-			this.r2 = r * abs(toY - fromY) / abs(toX - fromX);
+			this.r2 = r * Math.abs(toY - fromY) / Math.abs(toX - fromX);
 
 		} else {
 
@@ -69,12 +70,12 @@ class TileableNoise {
 			// If t is not passed in, it's set to 0
 			if (arguments.length === 1) t = 0;
 
-			// Calculates the angle according to the x value. If x=fromX => angle=0; If x=toX => angle=TWO_PI. Thus the position loops
-			var angle = map(x, this.fromX, this.toX, 0, TWO_PI);
+			// Calculates the angle according to the x value. If x=fromX -> angle=0; If x=toX -> angle=2 * Math.PI. Thus the position loops
+			let angle = (x - this.fromX) / (this.toX - this.fromX) * 2 * Math.PI;
 
 			// Calculates the position based on the angle and offsets the circle, so it's positive in its entirety
-			var X = this.r * (cos(angle) + 1);
-			var Y = this.r * (sin(angle) + 1);
+			let X = this.r * (Math.cos(angle) + 1);
+			let Y = this.r * (Math.sin(angle) + 1);
 
 			// Returns the noise of X, Y and t, but converts from range [-1, 1] to [0, 1]
 			return (this.simplexNoise.noise3D(X, Y, t) + 1) / 2;
@@ -85,39 +86,26 @@ class TileableNoise {
 
 
 
-	/* eval2D(x, y, [t]): Evaluates the noise at values (x, y) according to the value t. The input t can be used to make animations, 
-	although not optimal (see description at the function location). If undefined, t is set to 0. */
+	/* eval2D(x, y, [t]): Evaluates the noise at values (x, y). */
 
 	eval2D(x, y, t) {
 
 		// Only works if arguments are passed in correctly
 		if (!this.error) {
 
-			if (arguments.length === 2) t = 0;
-
-			// Calculates the angle1 according to the x value. If x=fromX => angle1=0; If x=toX => angle1=TWO_PI. Thus the position loops on the x axis
-			// Calculates the angle2 according to the y value. If y=fromY => angle2=0; If y=toY => angle2=TWO_PI. Thus the position loops on the y axis
-			var angle1 = map(x, this.fromX, this.toX, 0, TWO_PI);
-			var angle2 = map(y, this.fromY, this.toY, 0, TWO_PI);
-
-			// By having "t" always positive the inputs of the noise valuve can't be negative 
-			var T = abs(t);
+			// Calculates the angle1 according to the x value. If x=fromX => angle1=0; If x=toX => angle1=2 * Math.PI. Thus the position loops on the x axis
+			// Calculates the angle2 according to the y value. If y=fromY => angle2=0; If y=toY => angle2=2 * Math.PI. Thus the position loops on the y axis
+			let angle1 = (x - this.fromX) / (this.toX - this.fromX) * 2 * Math.PI;
+			let angle2 = (y - this.fromY) / (this.toY - this.fromY) * 2 * Math.PI;
 
 			// Calculates the 4D position based on the angle and offsets the circle, so it's positive in its entirety
-			var X = this.r * (cos(angle1) + 1 + T);
-			var Y = this.r * (sin(angle1) + 1 + T);
-			var Z = this.r2 * (cos(angle2) + 1 + T);
-			var W = this.r2 * (sin(angle2) + 1 + T);
+			let X = this.r * (Math.cos(angle1) + 1);
+			let Y = this.r * (Math.sin(angle1) + 1);
+			let Z = this.r2 * (Math.cos(angle2) + 1);
+			let W = this.r2 * (Math.sin(angle2) + 1);
 
 			// Returns the noise of X, Y, Z amd W, but converts from range [-1, 1] to [0, 1]
 			return (this.simplexNoise.noise4D(X, Y, Z, W) + 1) / 2;
-
-			/*
-			Unfortunately the animation of the 2D tileable noise is not great because I wasn't able to find any 5D noise implementation, which was needed to make this work.
-			Thus I had to animate the noise by moving the 2 circles through the noise space which gives some weird results that I wasn't able to solve.
-			So I wouldn't recommend using animation on 2D tileable noise
-			*/
-
 		}
 
 	}

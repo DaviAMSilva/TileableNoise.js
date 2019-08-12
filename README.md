@@ -7,7 +7,7 @@ The Simplex Noise implementation by @jwagner is required.
 
 This class uses the idea of taking the output of a noise function, walking in a 2D circle, so the end value is equal to the start value, to allow for tileable noise, both in 1D.\
 By utilizing 2 circles in a 4D noise space it was possible to make tileable noise in a 2D enviroment.
-I got inspiration from Daniel Shiffman's video: [Coding Challenge #136.1: Polar Perlin Noise Loops](https://www.youtube.com/watch?v=ZI1dmHv3MeM), from the channel: "The Coding Train". After seeing the video I wanted to try out making a 2D tileable noise function, and here I am.
+I got inspiration from Daniel Shiffman's video: [Coding Challenge #136.1: Polar Perlin Noise Loops](https://www.youtube.com/watch?v=ZI1dmHv3MeM), from the channel: "The Coding Train". After seeing the video I wanted to try out making 2D tileable noise, and here I am.
 
 ## Examples
 
@@ -22,11 +22,13 @@ I got inspiration from Daniel Shiffman's video: [Coding Challenge #136.1: Polar 
 
 ## TODO List
 
-- [ ] Make it independent from p5.js
+- [x] Make it independent from p5.js
 - [ ] Add function to get the current seed
+- [ ] Add an wiki with all the funcionalities
 - [ ] Make a Processing version
 - [ ] Make a minimal version
 - [ ] Optimize it
+- [ ] Add 2D animation? (Requires 5D noise)
 
 <!-- ## Class Syntax
 ```
