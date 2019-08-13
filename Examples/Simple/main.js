@@ -46,5 +46,5 @@ function draw() {
 
 function mousePressed() {
 	// Get a new random seed
-	tN.seed();
+	tN.newSeed();
 }

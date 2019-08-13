@@ -17,6 +17,12 @@ class TileableNoise {
 		this.fromX = fromX;
 		this.toX = toX;
 
+		// Sets the initial seed
+		this.seed = Math.round(Math.random() * 1000);
+
+		// Stores the noise function
+		this.simplexNoise = new SimplexNoise(this.seed);
+
 		if (arguments.length === 3) {
 
 			// If fromY and toY are not passed in they get assigned the same as fromX and toX, respectevely...
@@ -28,6 +34,9 @@ class TileableNoise {
 
 			// Here r2 is equal to r because the x axis is "equal" to the y axis
 			this.r2 = r;
+
+			// Code runs normally
+			this.error = false;
 
 		} else if (arguments.length === 5) {
 
@@ -43,6 +52,9 @@ class TileableNoise {
 			// This is necessary because sometimes the scales of the x and y axis are different
 			this.r2 = r * Math.abs(toY - fromY) / Math.abs(toX - fromX);
 
+			// Code runs normally
+			this.error = false;
+
 		} else {
 
 			// If arguments are passed in incorrectly the code simply won't run
@@ -53,16 +65,14 @@ class TileableNoise {
 
 		}
 
-		// Stores the noise function
-		this.simplexNoise = new SimplexNoise();
-
 	}
 
 
 
-	/* eval1D(x, [t]): Evaluates the noise at values (x, t). The input t can be used to make animations. If undefined, t is set to 0. */
 
 	eval1D(x, t) {
+
+		/* eval1D(x, [t]): Evaluates the noise at values (x, t). The input t can be used to make animations. If undefined, t is set to 0. */
 
 		// Only works if arguments are passed in correctly
 		if (!this.error) {
@@ -86,9 +96,10 @@ class TileableNoise {
 
 
 
-	/* eval2D(x, y, [t]): Evaluates the noise at values (x, y). */
 
-	eval2D(x, y, t) {
+	eval2D(x, y) {
+
+		/* eval2D(x, y, [t]): Evaluates the noise at values (x, y). */
 
 		// Only works if arguments are passed in correctly
 		if (!this.error) {
@@ -112,15 +123,27 @@ class TileableNoise {
 
 
 
-	/* seed([value]): Sets the seed of the internal simplex noise function as value. If value in not passed in, a random seed is selected */
 
-	seed(value) {
+	newSeed(value) {
+
+		/* newSeed([value]): Sets the seed of the internal simplex noise function as value. If value in not passed in, a random seed is selected */
 
 		// Only works if arguments are passed in correctly
 		if (!this.error) {
 
-			// Sets the seed of the internal simplex noise function as value. If value in not passed in, a random seed is selected
-			this.simplexNoise = new SimplexNoise(value);
+			if (arguments.length === 0) {
+				this.seed = Math.round(Math.random() * 1000);
+				// If not passed in the seed property is randomized
+			} else {
+				this.seed = value;
+				// Else it's the value passed
+			}
+
+			// The simplex noise internal seed is set as the new seed
+			this.simplexNoise = new SimplexNoise(this.seed);
+
+			// Returns the new seed
+			return this.seed;
 
 		}
 
