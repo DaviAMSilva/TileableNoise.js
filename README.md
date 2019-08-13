@@ -23,7 +23,7 @@ I got inspiration from Daniel Shiffman's video: [Coding Challenge #136.1: Polar 
 ## TODO List
 
 - [x] Make it independent from p5.js
-- [ ] Add function to get the current seed
+- [x] Add seed property
 - [ ] Add an wiki with all the funcionalities
 - [ ] Make a Processing version
 - [ ] Make a minimal version
