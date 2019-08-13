@@ -51,7 +51,7 @@ function draw() {
 
 function mousePressed() {
 	// Get a new random seed
-	t1.seed();
-	t2.seed();
-	t3.seed();
+	t1.newSeed();
+	t2.newSeed();
+	t3.newSeed();
 }
