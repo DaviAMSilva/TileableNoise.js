@@ -33,7 +33,7 @@ function draw() {
 	off += .01;
 	
 	// Dinamically change the radius of the noise object
-	tN.r = map(mouseX, 0, width, .1, 3);
+	tN.r1 = map(mouseX, 0, width, .1, 3);
 }
 
 function mousePressed() {

@@ -30,7 +30,7 @@ class TileableNoise {
 			this.toY = toX;
 
 			// r is the radius of the first circle from where the noise is taken. It represents the noise scale of the x axis.
-			this.r = r;
+			this.r1 = r;
 
 			// Here r2 is equal to r because the x axis is "equal" to the y axis
 			this.r2 = r;
@@ -45,7 +45,7 @@ class TileableNoise {
 			this.toY = toY;
 
 			// r is the radius of the first circle from where the noise is taken. It represents the noise scale of the x axis.
-			this.r = r;
+			this.r1 = r;
 
 			// r2 is the radius of the second circle . It represents the noise scale of the y axis.
 			// It scales acording to the ratio of the absolute values of the difference in to'A' and from'A'.
@@ -84,8 +84,8 @@ class TileableNoise {
 			let angle = (x - this.fromX) / (this.toX - this.fromX) * 2 * Math.PI;
 
 			// Calculates the position based on the angle and offsets the circle, so it's positive in its entirety
-			let X = this.r * (Math.cos(angle) + 1);
-			let Y = this.r * (Math.sin(angle) + 1);
+			let X = this.r1 * (Math.cos(angle) + 1);
+			let Y = this.r1 * (Math.sin(angle) + 1);
 
 			// Returns the noise of X, Y and t, but converts from range [-1, 1] to [0, 1]
 			return (this.simplexNoise.noise3D(X, Y, t) + 1) / 2;
@@ -110,8 +110,8 @@ class TileableNoise {
 			let angle2 = (y - this.fromY) / (this.toY - this.fromY) * 2 * Math.PI;
 
 			// Calculates the 4D position based on the angle and offsets the circle, so it's positive in its entirety
-			let X = this.r * (Math.cos(angle1) + 1);
-			let Y = this.r * (Math.sin(angle1) + 1);
+			let X = this.r1 * (Math.cos(angle1) + 1);
+			let Y = this.r1 * (Math.sin(angle1) + 1);
 			let Z = this.r2 * (Math.cos(angle2) + 1);
 			let W = this.r2 * (Math.sin(angle2) + 1);
 
