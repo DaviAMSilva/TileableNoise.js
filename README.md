@@ -1,7 +1,7 @@
 # TileableNoise.js
 
 **TileableNoise.js** is a simple library that helps creat seamless tileable noise for many uses.
-The Simplex Noise implementation by @jwagner is required.
+The Simplex Noise implementation by **jwagner** is required.
 
 ## Introduction
 
