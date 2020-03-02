@@ -1,26 +1,24 @@
 const points = 300;
-var step;
-
-var tN; // Initializing
-var off = 0; // Initializing
+var step, tN;
+var offset = 0;
 
 function setup() {
     createCanvas(w = windowWidth, h = windowHeight);
-
-    step = TWO_PI / points;
     fill(100, 255, 50);
 
-    // The tileable noise object
+    step = TWO_PI / points;
     tN = new TileableNoise(.1, 0, TWO_PI);
 }
 
 function draw() {
+    tN.r1 = map(mouseX, 0, width, 0.1, 3);
+
     background(255, 100, 20);
 
     beginShape();
     for (var a = 0; a < TWO_PI; a += step) {
-        var r = tN.eval1D(a, off);
-        r = map(r, 0, 1, h * .2, h * .4);
+        var r = tN.eval1D(a, offset);
+        r = map(r, -1, 1, h * 0.2, h * 0.4);
 
         var x = cos(a) * r + w / 2;
         var y = sin(a) * r + h / 2;
@@ -29,14 +27,9 @@ function draw() {
     }
     endShape(CLOSE);
 
-    // Animation
-    off += .01;
-
-    // Dinamically change the radius of the noise object
-    tN.r1 = map(mouseX, 0, width, .1, 3);
+    offset += 0.01;
 }
 
 function mousePressed() {
-    // Get a new random seed
     tN.newSeed();
 }
