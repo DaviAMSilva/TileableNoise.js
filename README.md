@@ -23,6 +23,6 @@ Eu tirei minha inspiração de um vídeo do Daniel Shiffman's: [Coding Challenge
 ## Falta fazer (TODO)
 
 - [x] Fazer uma versão minificada
-- [ ] Otimizar
+- [ ] Otimizar a classe
 - [ ] Fazer uma versão para Processing
 - [ ] Adicionar animações em 2D? (Requer ruído 5D)
