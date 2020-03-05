@@ -22,10 +22,7 @@ I got inspiration from Daniel Shiffman's video: [Coding Challenge #136.1: Polar 
 
 ## TODO List
 
-- [x] Make it independent from p5.js
-- [x] Add seed property
-- [x] Add an wiki with all the funcionalities
-- [ ] Make a Processing version
-- [ ] Make a minimal version
-- [ ] Optimize it
-- [ ] Add 2D animation? (Requires 5D noise)
+- [x] Fazer uma versão minificada
+- [ ] Otimizar a classe
+- [ ] Fazer uma versão para Processing
+- [ ] Adicionar animações em 2D? (Requer ruído 5D)
