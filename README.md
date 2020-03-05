@@ -1,7 +1,7 @@
 # TileableNoise.js
 
 **TileableNoise.js** é uma simples classe que ajuda a criar imagens de ruídos que se conectam perfeitamente.
-A implementação de [**ruído simplex**]((https://github.com/jwagner/simplex-noise.js)) por @jwagner é necessária.
+A implementação de [**ruído simplex**](https://github.com/jwagner/simplex-noise.js) por @jwagner é necessária.
 
 ## Introdução
 

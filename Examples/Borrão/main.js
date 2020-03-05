@@ -7,7 +7,7 @@ function setup() {
     fill(100, 255, 50);
 
     step = TWO_PI / points;
-    tN = new TileableNoise(.1, 0, TWO_PI);
+    tN = new TileableNoise(0.1, 0, TWO_PI);
 }
 
 function draw() {
