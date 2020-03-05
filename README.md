@@ -1,28 +1,31 @@
 # TileableNoise.js
 
-**TileableNoise.js** é uma simples classe que ajuda a criar imagens de ruídos que se conectam perfeitamente.
-A implementação de [**ruído simplex**]((https://github.com/jwagner/simplex-noise.js)) por @jwagner é necessária.
+**TileableNoise.js** is a simple library that helps creat seamless tileable noise for many uses.
+The Simplex Noise implementation by **jwagner** is required.
 
-## Introdução
+## Introduction
 
-Essa classe usa a ideia de pegar o resultado de uma função de ruído, andando em volta de um círculo, para que o valor inicial seja igual ao valor final, permitindo ruído conectável em 1D e 2D.\
-Usando dois círculos em um espaço de ruído 4D é possível criar ruído repetível em um ambiente 2D.\
-Eu tirei minha inspiração de um vídeo do Daniel Shiffman's: [Coding Challenge #136.1: Polar Perlin Noise Loops](https://www.youtube.com/watch?v=ZI1dmHv3MeM), do canal [The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw).
+This class uses the idea of taking the output of a noise function, walking in a 2D circle, so the end value is equal to the start value, to allow for tileable noise, both in 1D.\
+By utilizing 2 circles in a 4D noise space it was possible to make tileable noise in a 2D enviroment.
+I got inspiration from Daniel Shiffman's video: [Coding Challenge #136.1: Polar Perlin Noise Loops](https://www.youtube.com/watch?v=ZI1dmHv3MeM), from the channel: "The Coding Train". After seeing the video I wanted to try out making 2D tileable noise, and here I am.
 
 ## Examples
 
-![Imagem de um ruído monocromático repetível](images/example_simple.png)
-*Imagem feita com a class. As linhas vermelhas marcam o local da repetição.*
+![Tileable noise example with red lines marking the seamless tile](images/example_simple.png)
+*Image made with the library. Red lines mark the seamless tile*
 
-![Imagem de uma ruído colorido repetível](images/example_rgb.png)
-*Usando 3 instâncias da classe é possível criar uma imagem colorida e repetível.*
+![Colorful image generated with 3 noise functions](images/example_rgb.png)
+*Using 3 noise functions as the color channels to get a colorful tileable image*
 
-![Borrão circular pontiagudo feito com ruído, sem marcas de início/fim](images/example_blob.png)
-*Borrão circular pontiagudo feito com ruído, sem marcas que mostrar o início ou o fim.*
+![Seamless noise generated black blob](images/example_blob.png)
+*Noise generated blob that doesn't has an begin/end at the circumference*
 
-## Falta fazer (TODO)
+## TODO List
 
-- [x] Fazer uma versão minificada
-- [ ] Otimizar
-- [ ] Fazer uma versão para Processing
-- [ ] Adicionar animações em 2D? (Requer ruído 5D)
+- [x] Make it independent from p5.js
+- [x] Add seed property
+- [x] Add an wiki with all the funcionalities
+- [ ] Make a Processing version
+- [ ] Make a minimal version
+- [ ] Optimize it
+- [ ] Add 2D animation? (Requires 5D noise)
