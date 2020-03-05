@@ -10,8 +10,13 @@ function setup() {
 	step = TWO_PI / points;
 	fill(100,255,50);
 
+<<<<<<< HEAD:Examples/Blob/main.js
 	// The tileable noise object
 	tN = new TileableNoise(.1, 0, TWO_PI);
+=======
+    step = TWO_PI / points;
+    tN = new TileableNoise(0.1, 0, TWO_PI);
+>>>>>>> Tradução-&-Melhorias:Examples/Borrão/main.js
 }
 
 function draw() {
