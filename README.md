@@ -12,17 +12,10 @@ Eu tirei minha inspiração de um vídeo do Daniel Shiffman's: [Coding Challenge
 ## Examples
 
 ![Imagem de um ruído monocromático repetível](images/example_simple.png)
-*Imagem feita com a class. As linhas vermelhas marcam o local da repetição.*
+*Imagem feita com a classe. As linhas vermelhas marcam o local da repetição.*
 
 ![Imagem de uma ruído colorido repetível](images/example_rgb.png)
 *Usando 3 instâncias da classe é possível criar uma imagem colorida e repetível.*
 
 ![Borrão circular pontiagudo feito com ruído, sem marcas de início/fim](images/example_blob.png)
-*Borrão circular pontiagudo feito com ruído, sem marcas que mostrar o início ou o fim.*
-
-## Falta fazer (TODO)
-
-- [x] Fazer uma versão minificada
-- [ ] Otimizar a classe
-- [ ] Fazer uma versão para Processing
-- [ ] Adicionar animações em 2D? (Requer ruído 5D)
+*Borrão circular pontiagudo feito com ruído, sem marcas que mostram o início ou o fim.*
